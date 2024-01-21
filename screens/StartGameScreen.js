@@ -6,7 +6,11 @@ export default function StartGameScreen() {
   return (
     <View style={styles.startGameContainer}>
       <View>
-        <TextInput title="Enter number" />
+        <TextInput
+          title="Enter number"
+          style={styles.numberInput}
+          maxLength={2}
+        />
       </View>
       <View style={styles.buttonContainer}>
         <PrimaryButtons>Reset</PrimaryButtons>
@@ -27,6 +31,17 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 6, height: 6 },
     shadowOpacity: 0.25,
     shadowRadius: 6,
+  },
+  numberInput: {
+    height: 50,
+    width: 42,
+    fontSize: 32,
+    borderBottomColor: "#f5c70f",
+    borderBottomWidth: 2,
+    color: "#f5c70f",
+    marginVertical: 8,
+    fontWeight: "bold",
+    textAlign: "center",
   },
   buttonContainer: {
     flexDirection: "row",
