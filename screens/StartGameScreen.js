@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TextInput, View, StyleSheet, Alert } from "react-native";
 import PrimaryButtons from "../components/PrimaryButtons";
 
-export default function StartGameScreen() {
+export default function StartGameScreen({ pickedNumber }) {
   const [enteredValue, setEnteredValue] = useState("");
 
   const changeNumberHandler = (enteredText) => {
@@ -14,7 +14,7 @@ export default function StartGameScreen() {
     setEnteredValue("");
   };
   const confirmInputHandler = () => {
-    const choosenNumber = parseInt(enteredValue);
+    let choosenNumber = parseInt(enteredValue);
     if (isNaN(choosenNumber) || choosenNumber <= 0 || choosenNumber > 99) {
       Alert.alert(
         "Invalid number!",
@@ -23,6 +23,8 @@ export default function StartGameScreen() {
       );
       return;
     }
+    console.log("choosenNumber", choosenNumber);
+    pickedNumber(choosenNumber);
   };
   return (
     <View style={styles.startGameContainer}>
