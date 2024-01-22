@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
+import { colors } from "./constants/colors";
 
 export default function PrimaryButtons({ children, onPress }) {
   return (
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
   },
   buttonInnerContainer: {
     elevation: 2,
-    backgroundColor: "#72063c",
+    backgroundColor: colors.primary600,
     paddingHorizontal: 16,
     paddingVertical: 8,
   },

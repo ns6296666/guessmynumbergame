@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { TextInput, View, StyleSheet, Alert } from "react-native";
 import PrimaryButtons from "../components/PrimaryButtons";
+import { colors } from "../components/constants/colors";
 
 export default function StartGameScreen({ pickedNumber }) {
   const [enteredValue, setEnteredValue] = useState("");
 
   const changeNumberHandler = (enteredText) => {
-    console.log("======", enteredText);
     setEnteredValue(enteredText);
   };
 
@@ -23,7 +23,6 @@ export default function StartGameScreen({ pickedNumber }) {
       );
       return;
     }
-    console.log("choosenNumber", choosenNumber);
     pickedNumber(choosenNumber);
   };
   return (
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginHorizontal: 24,
     borderRadius: 8,
-    backgroundColor: "#63022b",
+    backgroundColor: colors.primary700,
     elevation: 20,
     shadowColor: "000",
     shadowOffset: { width: 6, height: 6 },
@@ -69,9 +68,9 @@ const styles = StyleSheet.create({
     height: 50,
     width: 42,
     fontSize: 32,
-    borderBottomColor: "#f5c70f",
+    borderBottomColor: colors.primary500,
     borderBottomWidth: 2,
-    color: "#f5c70f",
+    color: colors.primary500,
     marginVertical: 8,
     fontWeight: "bold",
     textAlign: "center",

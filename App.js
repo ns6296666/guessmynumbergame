@@ -7,7 +7,6 @@ import GameScreen from "./screens/GameScreen";
 export default function App() {
   const [enteredValue, setEnteredValue] = useState();
   const pickedNumberHandler = (pickedNumber) => {
-    console.log("pickedNumber", pickedNumber);
     setEnteredValue(pickedNumber);
   };
   let screen = <StartGameScreen pickedNumber={pickedNumberHandler} />;
