@@ -10,11 +10,18 @@ export default function StartGameScreen() {
           title="Enter number"
           style={styles.numberInput}
           maxLength={2}
+          keyboardType="number-pad"
+          autoCapitalize="none"
+          //   autoComplete={false}
         />
       </View>
-      <View style={styles.buttonContainer}>
-        <PrimaryButtons>Reset</PrimaryButtons>
-        <PrimaryButtons>Confirm</PrimaryButtons>
+      <View style={styles.buttonsContainer}>
+        <View style={styles.buttonContainer}>
+          <PrimaryButtons>Reset</PrimaryButtons>
+        </View>
+        <View style={styles.buttonContainer}>
+          <PrimaryButtons>Confirm</PrimaryButtons>
+        </View>
       </View>
     </View>
   );
@@ -25,12 +32,14 @@ const styles = StyleSheet.create({
     padding: 16,
     marginHorizontal: 24,
     borderRadius: 8,
-    backgroundColor: "#b80416",
+    backgroundColor: "#63022b",
     elevation: 20,
     shadowColor: "000",
     shadowOffset: { width: 6, height: 6 },
     shadowOpacity: 0.25,
     shadowRadius: 6,
+    justifyContent: "center",
+    alignItems: "center",
   },
   numberInput: {
     height: 50,
@@ -43,7 +52,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  buttonContainer: {
+  buttonsContainer: {
     flexDirection: "row",
+    justifyContent: "center",
+  },
+  buttonContainer: {
+    flex: 1,
   },
 });

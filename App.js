@@ -1,12 +1,18 @@
-import { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
-import GoalItem from "./components/GoalItem";
-import GoalInput from "./components/GoalInput";
-import { StatusBar } from "expo-status-bar";
 import StartGameScreen from "./screens/StartGameScreen";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function App() {
-  return <StartGameScreen />;
+  return (
+    <LinearGradient
+      colors={["#63022b", "#f7cf02"]}
+      style={styles.rootContainer}
+    >
+      <StartGameScreen />
+    </LinearGradient>
+  );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  rootContainer: { flex: 1, backgroundColor: "#f7cf02" },
+});
