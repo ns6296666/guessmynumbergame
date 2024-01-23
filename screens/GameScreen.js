@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
 import Title from "../components/Title";
 import PrimaryButtons from "../components/PrimaryButtons";
@@ -25,9 +25,9 @@ function GameScreen({ userNumber, OnGameOver }) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
-  useEffect(() => {
+  const memoizedOnGameOver = useMemo(() => {
     if (userNumber === currentGuess) {
-      OnGameOver();
+      return OnGameOver();
     }
   }, [currentGuess, userNumber, OnGameOver]);
 
