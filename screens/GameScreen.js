@@ -5,6 +5,8 @@ import PrimaryButtons from "../components/PrimaryButtons";
 import NumberContainer from "../components/game/NumberContainer";
 import InstructionText from "../components/InstructionText";
 import Card from "../components/Card";
+import { FontAwesome6 } from "@expo/vector-icons";
+import { Fontisto } from "@expo/vector-icons";
 
 const generateRandomBetween = (min, max, exclude) => {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -64,13 +66,13 @@ function GameScreen({ userNumber, OnGameOver }) {
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
             <PrimaryButtons onPress={() => nextGuessHandler("greater")}>
-              +
+              <FontAwesome6 name="plus" size={24} color="white" />
             </PrimaryButtons>
           </View>
 
           <View style={styles.buttonContainer}>
             <PrimaryButtons onPress={() => nextGuessHandler("lower")}>
-              -
+              <Fontisto name="minus-a" size={24} color="white" />
             </PrimaryButtons>
           </View>
         </View>
