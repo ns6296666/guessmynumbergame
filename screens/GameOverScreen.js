@@ -39,9 +39,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   imageContainer: {
-    width: dimensionWidth < 380 ? 150 : 300,
-    height: dimensionWidth < 380 ? 150 : 300,
-    borderRadius: dimensionWidth < 380 ? 75 : 150,
+    width: dimensionWidth < 380 ? 100 : 300,
+    height: dimensionWidth < 380 ? 100 : 300,
+    borderRadius: dimensionWidth < 380 ? 50 : 150,
     borderWidth: 3,
     borderColor: colors.primary700,
     overflow: "hidden",
