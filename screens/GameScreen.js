@@ -25,11 +25,16 @@ function GameScreen({ userNumber, OnGameOver }) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
-  const memoizedOnGameOver = useMemo(() => {
+  useEffect(() => {
     if (userNumber === currentGuess) {
       return OnGameOver();
     }
   }, [currentGuess, userNumber, OnGameOver]);
+
+  useEffect(() => {
+    minBoundary = 1;
+    maxBoundary = 100;
+  }, []);
 
   function nextGuessHandler(direction) {
     if (

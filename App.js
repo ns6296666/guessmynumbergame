@@ -8,9 +8,16 @@ import GameOverScreen from "./screens/GameOverScreen";
 export default function App() {
   const [enteredValue, setEnteredValue] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
+  const [guessRounds, setGuessRounds] = useState(0);
+
   const pickedNumberHandler = (pickedNumber) => {
     setEnteredValue(pickedNumber);
     setGameIsOver(false);
+  };
+
+  const startNewGameHandler = () => {
+    setEnteredValue(null);
+    setGuessRounds(0);
   };
   let screen = <StartGameScreen pickedNumber={pickedNumberHandler} />;
   const gameOverHandler = () => {
@@ -22,7 +29,13 @@ export default function App() {
     );
   }
   if (gameIsOver && enteredValue) {
-    screen = <GameOverScreen />;
+    screen = (
+      <GameOverScreen
+        userNumber={enteredValue}
+        roundsNumber={guessRounds}
+        onStartNewGame={startNewGameHandler}
+      />
+    );
   }
 
   return (
