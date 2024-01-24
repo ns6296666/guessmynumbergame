@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { View, Text, StyleSheet, Alert } from "react-native";
+import { View, Text, StyleSheet, Alert, FlatList } from "react-native";
 import Title from "../components/Title";
 import PrimaryButtons from "../components/PrimaryButtons";
 import NumberContainer from "../components/game/NumberContainer";
@@ -24,6 +24,7 @@ let maxBoundary = 100;
 function GameScreen({ userNumber, OnGameOver }) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+  const [guessRounds, setGuessRounds] = useState([initialGuess]);
 
   useEffect(() => {
     if (userNumber === currentGuess) {
@@ -35,7 +36,6 @@ function GameScreen({ userNumber, OnGameOver }) {
     minBoundary = 1;
     maxBoundary = 100;
   }, []);
-
   function nextGuessHandler(direction) {
     if (
       (direction === "lower" && currentGuess < userNumber) ||
@@ -57,6 +57,7 @@ function GameScreen({ userNumber, OnGameOver }) {
       currentGuess
     );
     setCurrentGuess(newRndNumber);
+    setGuessRounds((prev) => [newRndNumber, ...prev]);
     console.log(maxBoundary, minBoundary);
   }
   return (
@@ -83,7 +84,12 @@ function GameScreen({ userNumber, OnGameOver }) {
         </View>
       </Card>
 
-      {/* <View>LOG ROUNDS</View> */}
+      <View>
+        <FlatList
+          data={guessRounds}
+          renderItem={({ item }) => <Text key={item}>{item}</Text>}
+        />
+      </View>
     </View>
   );
 }
