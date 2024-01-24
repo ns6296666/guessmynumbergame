@@ -20,8 +20,9 @@ export default function App() {
     setGuessRounds(0);
   };
   let screen = <StartGameScreen pickedNumber={pickedNumberHandler} />;
-  const gameOverHandler = () => {
+  const gameOverHandler = (numberOfRounds) => {
     setGameIsOver(true);
+    setGuessRounds(numberOfRounds);
   };
   if (enteredValue) {
     screen = (
