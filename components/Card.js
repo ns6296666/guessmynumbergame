@@ -1,13 +1,14 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Dimensions } from "react-native";
 import colors from "../constants/colors";
 
 export default function Card({ children }) {
   return <View style={styles.startGameContainer}>{children}</View>;
 }
+const dimensionWidth = Dimensions.get("window").width;
 const styles = StyleSheet.create({
   startGameContainer: {
-    marginTop: 30,
+    // marginTop: dimensionWidth < 380 ? 0 : 0,
     padding: 16,
     marginHorizontal: 24,
     borderRadius: 8,
