@@ -4,8 +4,6 @@ import {
   View,
   StyleSheet,
   Alert,
-  Dimensions,
-  Platform,
   useWindowDimensions,
   KeyboardAvoidingView,
   ScrollView,

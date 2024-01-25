@@ -17,11 +17,24 @@ export default function GameOverScreen({
   onStartNewGame,
 }) {
   const { width, height } = useWindowDimensions();
+  console.log("width", width);
+  const imageContainerWidth = width < 400 ? 150 : 300;
+  const imageContainerHeight = width < 400 ? 150 : 300;
+  const borderRadius = width < 380 ? 75 : 150;
   let content = (
     <>
       <View style={styles.screen}>
         <Title>Game Over!</Title>
-        <View style={styles.imageContainer}>
+        <View
+          style={[
+            styles.imageContainer,
+            {
+              width: imageContainerWidth,
+              height: imageContainerHeight,
+              borderRadius: borderRadius,
+            },
+          ]}
+        >
           <Image
             source={require("../assets/success.jpeg")}
             style={styles.image}
@@ -46,7 +59,16 @@ export default function GameOverScreen({
       <>
         <View style={styles.screenWide}>
           <Title>Game Over!</Title>
-          <View style={styles.imageContainerWide}>
+          <View
+            style={[
+              styles.imageContainerWide,
+              {
+                width: imageContainerWidth,
+                height: imageContainerHeight,
+                borderRadius: width < 500 ? 50 : 75,
+              },
+            ]}
+          >
             <Image
               source={require("../assets/success.jpeg")}
               style={styles.image}
@@ -67,9 +89,10 @@ export default function GameOverScreen({
       </>
     );
   }
+
   return <>{content}</>;
 }
-const dimensionWidth = Dimensions.get("window").width;
+
 const styles = StyleSheet.create({
   screenWide: {
     flex: 1,
@@ -84,18 +107,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   imageContainerWide: {
-    width: dimensionWidth < 380 ? 100 : 150,
-    height: dimensionWidth < 380 ? 100 : 150,
-    borderRadius: dimensionWidth < 380 ? 50 : 75,
+    // width: imageContainerWidth,
+    // height: imageContainerHeight,
+    //borderRadius: dimensionWidth < 380 ? 50 : 75,
     borderWidth: 3,
     borderColor: colors.primary700,
     overflow: "hidden",
     margin: 20,
   },
   imageContainer: {
-    width: dimensionWidth < 380 ? 100 : 300,
-    height: dimensionWidth < 380 ? 100 : 300,
-    borderRadius: dimensionWidth < 380 ? 50 : 150,
+    // width: dimensionWidth < 380 ? 100 : 300,
+    // height: dimensionWidth < 380 ? 100 : 300,
+    //borderRadius: dimensionWidth < 380 ? 50 : 150,
     borderWidth: 3,
     borderColor: colors.primary700,
     overflow: "hidden",
